@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate
 from rest_framework import serializers
 
-from .models import CustomUser, Profile
+from apps.users.models import CustomUser, Profile
 
 
 class CustomUserSerializer(serializers.ModelSerializer):
@@ -17,7 +17,7 @@ class UserRegisterationSerializer(serializers.ModelSerializer):
         extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
-        return CustomUser.objects.create(**validated_data)
+        return CustomUser.objects.create_user(**validated_data)
 
 
 class UserLoginSerializer(serializers.Serializer):

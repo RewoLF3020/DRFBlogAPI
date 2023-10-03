@@ -1,12 +1,12 @@
 from django.contrib.auth import get_user_model
 from rest_framework import status
-from rest_framework.generics import GenericAPIView, RetrieveAPIView
+from rest_framework.generics import GenericAPIView, RetrieveAPIView, RetrieveUpdateAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from . import serializers
-from .models import Profile
+from apps.users.models import Profile
 
 
 User = get_user_model()
@@ -62,7 +62,7 @@ class UserAPIView(RetrieveAPIView):
         return self.request.user
 
 
-class UserProfileAPIView(RetrieveAPIView):
+class UserProfileAPIView(RetrieveUpdateAPIView):
     queryset = Profile.objects.all()
     serializer_class = serializers.ProfileSerializer
     permission_classes = (IsAuthenticated,)

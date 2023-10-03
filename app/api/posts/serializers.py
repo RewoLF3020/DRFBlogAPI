@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, Post, Comment
+from apps.posts.models import Category, Post, Comment
 
 
 class CategoryReadSerializer(serializers.ModelSerializer):

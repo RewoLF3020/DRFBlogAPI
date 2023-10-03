@@ -3,7 +3,7 @@ from rest_framework import permissions, status, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Category, Post, Comment
+from apps.posts.models import Category, Post, Comment
 from .serializers import (
     CategoryReadSerializer,
     CommentReadSerializer,

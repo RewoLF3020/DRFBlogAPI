@@ -22,7 +22,7 @@ class CustomUser(AbstractUser):
 
 
 def get_image_filename(instance, filename):
-    name = instance.product.name
+    name = instance.avatar.name
     slug = slugify(name)
     return f"products/{slug}-{filename}"
 
