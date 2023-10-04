@@ -5,8 +5,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # rest_framework.urls for using browsable API
-    path('api/drf-auth/', include('rest_framework.urls')),
+    # path('api/drf-auth/', include('rest_framework.urls')), # rest_framework.urls for using browsable API
+    path('api/auth/', include('djoser.urls')),
+    path('api/auth/', include('djoser.urls.jwt')),
     path('api/', include('api.urls')),
 ]
 

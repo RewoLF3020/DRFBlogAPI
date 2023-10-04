@@ -11,6 +11,7 @@ from .managers import CustomUserManager
 
 class CustomUser(AbstractUser):
     email = models.EmailField(_("email address"), unique=True)
+    # is_verfied = models.BooleanField(_("verified"), default=False)
     
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
